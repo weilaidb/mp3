@@ -1,0 +1,557 @@
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# modprobe chrdevbase.ko 
+modprobe: FATAL: Module chrdevbase.ko not found in directory /lib/modules/4.4.0-81-generic
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls -l /lib/modules/4.4.0-81-generic/chrdevbase.ko 
+-rw-r--r-- 1 root root 5240 Mar  7 23:42 /lib/modules/4.4.0-81-generic/chrdevbase.ko
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls -l /lib/modules/4.4.0-81-generic/
+total 4524
+lrwxrwxrwx  1 root root      39 Jun 14  2017 build -> /usr/src/linux-headers-4.4.0-81-generic
+-rw-r--r--  1 root root    5240 Mar  7 23:42 chrdevbase.ko
+drwxr-xr-x  2 root root    4096 Jun 14  2017 initrd
+drwxr-xr-x 12 root root    4096 Jun 20  2017 kernel
+-rw-r--r--  1 root root 1088159 Jun 20  2017 modules.alias
+-rw-r--r--  1 root root 1085254 Jun 20  2017 modules.alias.bin
+-rw-r--r--  1 root root    7270 Jun 14  2017 modules.builtin
+-rw-r--r--  1 root root    9219 Jun 20  2017 modules.builtin.bin
+-rw-r--r--  1 root root  499749 Jun 20  2017 modules.dep
+-rw-r--r--  1 root root  713645 Jun 20  2017 modules.dep.bin
+-rw-r--r--  1 root root     285 Jun 20  2017 modules.devname
+-rw-r--r--  1 root root  187276 Jun 14  2017 modules.order
+-rw-r--r--  1 root root     114 Jun 20  2017 modules.softdep
+-rw-r--r--  1 root root  445458 Jun 20  2017 modules.symbols
+-rw-r--r--  1 root root  550415 Jun 20  2017 modules.symbols.bin
+drwxr-xr-x  3 root root    4096 Jun 20  2017 vdso
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls -l /lib/modules/4.4.0-81-generic/chrdevbase.ko 
+-rw-r--r-- 1 root root 5240 Mar  7 23:42 /lib/modules/4.4.0-81-generic/chrdevbase.ko
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# rm -f  /lib/modules/4.4.0-81-generic/chrdevbase.ko      
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# modprobe chrdevbase.ko 
+modprobe: FATAL: Module chrdevbase.ko not found in directory /lib/modules/4.4.0-81-generic
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# depmod 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# modprobe chrdevbase.ko 
+modprobe: FATAL: Module chrdevbase.ko not found in directory /lib/modules/4.4.0-81-generic
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# depmod 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# insmod chrdevbase.ko 
+insmod: ERROR: could not insert module chrdevbase.ko: Invalid module format
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# lsmod 
+Module                  Size  Used by
+bridge                114688  0
+stp                    16384  1 bridge
+llc                    16384  2 stp,bridge
+snd_ens1371            24576  2
+snd_ac97_codec        106496  1 snd_ens1371
+gameport               16384  1 snd_ens1371
+ac97_bus               16384  1 snd_ac97_codec
+coretemp               16384  0
+snd_pcm                94208  2 snd_ac97_codec,snd_ens1371
+vmw_balloon            20480  0
+crc32_pclmul           16384  0
+snd_seq_midi           16384  0
+snd_seq_midi_event     16384  1 snd_seq_midi
+snd_rawmidi            28672  2 snd_ens1371,snd_seq_midi
+aesni_intel            20480  0
+aes_i586               20480  1 aesni_intel
+xts                    16384  1 aesni_intel
+lrw                    16384  1 aesni_intel
+gf128mul               16384  2 lrw,xts
+ablk_helper            16384  1 aesni_intel
+cryptd                 20480  1 ablk_helper
+snd_seq                57344  2 snd_seq_midi_event,snd_seq_midi
+input_leds             16384  0
+snd_seq_device         16384  3 snd_seq,snd_rawmidi,snd_seq_midi
+snd_timer              32768  2 snd_pcm,snd_seq
+serio_raw              16384  0
+joydev                 20480  0
+binfmt_misc            20480  1
+snd                    69632  11 snd_ac97_codec,snd_timer,snd_pcm,snd_seq,snd_rawmidi,snd_ens1371,snd_seq_device
+soundcore              16384  1 snd
+vmw_vmci               61440  1 vmw_balloon
+shpchp                 32768  0
+i2c_piix4              20480  0
+irda                  176128  0
+8250_fintek            16384  0
+crc_ccitt              16384  1 irda
+mac_hid                16384  0
+nfsd                  286720  13
+auth_rpcgss            53248  1 nfsd
+parport_pc             32768  1
+nfs_acl                16384  1 nfsd
+lockd                  81920  1 nfsd
+ppdev                  20480  0
+grace                  16384  2 nfsd,lockd
+lp                     20480  0
+sunrpc                290816  18 nfsd,auth_rpcgss,lockd,nfs_acl
+parport                45056  3 lp,ppdev,parport_pc
+autofs4                40960  2
+vmw_pvscsi             24576  0
+vmxnet3                49152  0
+hid_generic            16384  0
+usbhid                 49152  0
+hid                    98304  2 hid_generic,usbhid
+vmwgfx                204800  3
+ttm                    90112  1 vmwgfx
+pcnet32                40960  0
+drm_kms_helper        139264  1 vmwgfx
+syscopyarea            16384  1 drm_kms_helper
+sysfillrect            16384  1 drm_kms_helper
+psmouse               118784  0
+sysimgblt              16384  1 drm_kms_helper
+mptspi                 24576  3
+fb_sys_fops            16384  1 drm_kms_helper
+mptscsih               40960  1 mptspi
+drm                   311296  6 ttm,drm_kms_helper,vmwgfx
+mptbase                98304  2 mptspi,mptscsih
+mii                    16384  1 pcnet32
+scsi_transport_spi     28672  1 mptspi
+pata_acpi              16384  0
+floppy                 61440  0
+fjes                   28672  0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# insmod chrdevbase.ko 
+insmod: ERROR: could not insert module chrdevbase.ko: Invalid module format
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# make -f Makefile.gcc 
+make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase  CONFIG_MODULE_SIG=n modules
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-81-generic'
+  CC [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.mod.o
+  LD [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.ko
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-81-generic'
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# make -f Makefile.gcc clean
+make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase clean
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-81-generic'
+  CLEAN   /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/.tmp_versions
+  CLEAN   /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/Module.symvers
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-81-generic'
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# make -f Makefile.gcc 
+make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase  CONFIG_MODULE_SIG=n modules
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-81-generic'
+  CC [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.mod.o
+  LD [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.ko
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-81-generic'
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# insmod chrdevbase.ko 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[  843.048235] chrdevbase_init
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# rmmod chrdevbase
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[  843.048235] chrdevbase_init
+[ 1025.175832] chrdevbase_exit
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[  843.048235] chrdevbase_init
+[ 1025.175832] chrdevbase_exit
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# make -f Makefile.gcc clean
+make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase clean
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-81-generic'
+  CLEAN   /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/.tmp_versions
+  CLEAN   /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/Module.symvers
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-81-generic'
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# make -f Makefile.gcc 
+#make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase  CONFIG_MODULE_SIG=n modules
+make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase modules
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-81-generic'
+  CC [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.mod.o
+  LD [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.ko
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-81-generic'
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# insmod chrdevbase.ko 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dm
+dmesg      dmidecode  dm-tool    
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 1046.040396] chrdevbase_init
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# rmmod chrdevbase
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 1046.040396] chrdevbase_init
+[ 1078.839935] chrdevbase_exit
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 1046.040396] chrdevbase_init
+[ 1078.839935] chrdevbase_exit
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# make -f Makefile.gcc clean
+make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase clean
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-81-generic'
+  CLEAN   /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/.tmp_versions
+  CLEAN   /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/Module.symvers
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-81-generic'
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# make -f Makefile.gcc 
+make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase modules
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-81-generic'
+  CC [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.mod.o
+  LD [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.ko
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-81-generic'
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# insmod chrdevbase.ko 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 1107.657033] chrdevbase_init
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gitst
+No command 'gitst' found, did you mean:
+ Command 'gmtst' from package 'scotch' (universe)
+ Command 'gitso' from package 'gitso' (universe)
+ Command 'gist' from package 'yorick' (universe)
+ Command 'gtst' from package 'scotch' (universe)
+ Command 'gotst' from package 'scotch' (universe)
+ Command 'gitit' from package 'gitit' (universe)
+gitst: command not found
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gitst
+No command 'gitst' found, did you mean:
+ Command 'gmtst' from package 'scotch' (universe)
+ Command 'gist' from package 'yorick' (universe)
+ Command 'gtst' from package 'scotch' (universe)
+ Command 'gotst' from package 'scotch' (universe)
+ Command 'gitit' from package 'gitit' (universe)
+ Command 'gitso' from package 'gitso' (universe)
+gitst: command not found
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gitst
+No command 'gitst' found, did you mean:
+ Command 'gotst' from package 'scotch' (universe)
+ Command 'gmtst' from package 'scotch' (universe)
+ Command 'gtst' from package 'scotch' (universe)
+ Command 'gist' from package 'yorick' (universe)
+ Command 'gitit' from package 'gitit' (universe)
+ Command 'gitso' from package 'gitso' (universe)
+gitst: command not found
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# insmod chrdevbase.ko 
+insmod: ERROR: could not insert module chrdevbase.ko: File exists
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./a.out 
+Error usage!./chrdevbaseAPP  <filename>  <1:2> 1表示读，2表示写
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# mknod 
+a.out                      chrdevbase.c               .chrdevbase.ko.cmd         .chrdevbase.mod.o.cmd      Makefile                   Module.symvers             
+chrdevbaseAPP              chrdevbase.code-workspace  chrdevbase.mod.c           chrdevbase.o               Makefile.gcc               .tmp_versions/             
+chrdevbaseAPP.c            chrdevbase.ko              chrdevbase.mod.o           .chrdevbase.o.cmd          modules.order              
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# cat > Readme.txt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# mknod  /dev/chrbase c 200 0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./a.out /dev/chrbase 
+Error usage!./chrdevbaseAPP  <filename>  <1:2> 1表示读，2表示写
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./a.out /dev/chrbase 1
+APP read data:kernel data!
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./a.out /dev/chrbase 2
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./a.out /dev/chrbase 2 haha
+Error usage!./chrdevbaseAPP  <filename>  <1:2> 1表示读，2表示写
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./a.out /dev/chrbase 1
+APP read data:kernel data!
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 1332.183897] kernel recevdata:usr data!
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 1332.183897] kernel recevdata:usr data!
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbase
+chrdevbaseAPP              chrdevbaseAPP.c            chrdevbase.c               chrdevbase.code-workspace  chrdevbase.ko              chrdevbase.mod.c           chrdevbase.mod.o           chrdevbase.o
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP
+chrdevbaseAPP: In function `__x86.get_pc_thunk.bx':
+(.text+0x30): multiple definition of `__x86.get_pc_thunk.bx'
+/usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o:(.gnu.linkonce.t.__x86.get_pc_thunk.bx+0x0): first defined here
+chrdevbaseAPP: In function `_fini':
+(.fini+0x0): multiple definition of `_fini'
+/usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o:(.fini+0x0): first defined here
+chrdevbaseAPP: In function `data_start':
+(.data+0x0): multiple definition of `__data_start'
+/usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crt1.o:(.data+0x0): first defined here
+chrdevbaseAPP: In function `data_start':
+(.data+0x4): multiple definition of `__dso_handle'
+/usr/lib/gcc/i686-linux-gnu/5/crtbegin.o:(.data+0x0): first defined here
+chrdevbaseAPP:(.rodata+0x4): multiple definition of `_IO_stdin_used'
+/usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crt1.o:(.rodata.cst4+0x0): first defined here
+chrdevbaseAPP: In function `_start':
+(.text+0x0): multiple definition of `_start'
+/usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crt1.o:(.text+0x0): first defined here
+chrdevbaseAPP:(.rodata+0x0): multiple definition of `_fp_hw'
+/usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crt1.o:(.rodata+0x0): first defined here
+chrdevbaseAPP: In function `_init':
+(.init+0x0): multiple definition of `_init'
+/usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o:(.init+0x0): first defined here
+/usr/lib/gcc/i686-linux-gnu/5/crtend.o:(.tm_clone_table+0x0): multiple definition of `__TMC_END__'
+chrdevbaseAPP:(.data+0x14): first defined here
+/usr/bin/ld: warning: Cannot create .eh_frame_hdr section, --eh-frame-hdr ignored.
+/usr/bin/ld: error in chrdevbaseAPP(.eh_frame); no .eh_frame_hdr table will be created.
+collect2: error: ld returned 1 exit status
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP.c 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP.c -o chrdevbaseAPP
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers  Readme.txt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP
+Error usage!./chrdevbaseAPP  <filename>  <1> 1表示读
+            ./chrdevbaseAPP  <filename>  <2> <write data>2表示写
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 
+null write data: Success
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP.c -o chrdevbaseAPP
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 
+null write data error: Success
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 testabcfffffffffffffffffffffffff
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 1784.823254] kernel recevdata:testabcfffu\xffffffb7iu\xffffffb7
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 testabc
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 1784.823254] kernel recevdata:testabcfffu\xffffffb7iu\xffffffb7
+[ 1799.287142] kernel recevdata:testabc
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 testabcnihaoma
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 1784.823254] kernel recevdata:testabcfffu\xffffffb7iu\xffffffb7
+[ 1799.287142] kernel recevdata:testabc
+[ 1806.504631] kernel recevdata:testabcnihr\xffffffb7Ir\xffffffb7p\xffffffaf\xffffffec\xffffffbf\xffffff83
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# make -f Makefile.gcc clean
+make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase clean
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-81-generic'
+  CLEAN   /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/.tmp_versions
+  CLEAN   /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/Module.symvers
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-81-generic'
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# make -f Makefile.gcc 
+make -C /lib/modules/4.4.0-81-generic/build M=/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase modules
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-81-generic'
+  CC [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.mod.o
+  LD [M]  /home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase/chrdevbase.ko
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-81-generic'
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# rmmod chrdevbase
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 1784.823254] kernel recevdata:testabcfffu\xffffffb7iu\xffffffb7
+[ 1799.287142] kernel recevdata:testabc
+[ 1806.504631] kernel recevdata:testabcnihr\xffffffb7Ir\xffffffb7p\xffffffaf\xffffffec\xffffffbf\xffffff83
+[ 1915.639344] chrdevbase_exit
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 1784.823254] kernel recevdata:testabcfffu\xffffffb7iu\xffffffb7
+[ 1799.287142] kernel recevdata:testabc
+[ 1806.504631] kernel recevdata:testabcnihr\xffffffb7Ir\xffffffb7p\xffffffaf\xffffffec\xffffffbf\xffffff83
+[ 1915.639344] chrdevbase_exit
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# insmod chrdevbase.ko 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c             
+[ 1927.754780] chrdevbase_init
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers  Readme.txt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers  Readme.txt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP
+Error usage!./chrdevbaseAPP  <filename>  <1> 1表示读
+            ./chrdevbaseAPP  <filename>  <2> <write data>2表示写
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesattttttttafdfsdfd
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 1949.544549] kernel recevdata:tesattttttz\xffffffb7   z\xffffffb7 \xffffffa8\xffffffb3\xffffffbf\xffffff8,len:50
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 1949.544549] kernel recevdata:tesattttttz\xffffffb7   z\xffffffb7 \xffffffa8\xffffffb3\xffffffbf\xffffff8,len:50
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesattttttttafdfsdfd
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 1961.384071] kernel recevdata:tesattttttp\xffffffb7\xffffffc9p\xffffffb7\xffffffa0Y\xffffff81\xffffffbf\xffffff8,len:50
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesatttttttttttttttttttttttttt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 1992.984620] kernel recevdata:tesattttttr\xffffffb7Ir\xffffffb7\xfffffff0y\xffffffeb\xffffffbf\xffffff8,len:50
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesattttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2003.689225] kernel recevdata:tesatttttt}\xffffffb7\xffffffc9}\xffffffb7p,\xffffffe1\xffffffbf\xffffff8,len:50
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesatttttttttttttttttttttttttttttttttttttttttttttt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2025.625231] kernel recevdata:tesattttttq\xffffffb7yq\xffffffb7P㫿\xffffff8,len:50
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers  Readme.txt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls
+a.out  chrdevbaseAPP  chrdevbaseAPP.c  chrdevbase.c  chrdevbase.code-workspace  chrdevbase.ko  chrdevbase.mod.c  chrdevbase.mod.o  chrdevbase.o  Makefile  Makefile.gcc  modules.order  Module.symvers  Readme.txt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP.c -o chrdevbaseAPP
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesatttttttttttttttttttttttttttttttttttttttttttttt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2090.712185] kernel recevdata:tesatttttt,len:10
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP.c -o chrdevbaseAPP                                             
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesatttttttttttttttttttttttttttttttttttttttttttttt
+write date ok, len:10, actulen:0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP.c -o chrdevbaseAPP                                             
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesatttttttttttttttttttttttttttttttttttttttttttttt
+write date ok, len:50, actulen:0
+write date ok, len:10, actulen:0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP.c -o chrdevbaseAPP                                             
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesatttttttttttttttttttttttttttttttttttttttttttttt
+write date ok, len:50, actulen:0
+write date ok, len:10, actulen:0
+write date ok, len:10, actulen:0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP.c -o chrdevbaseAPP                                             
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesatttttttttttttttttttttttttttttttttttttttttttttt
+write date ok, len:50, actulen:0
+write date ok, len:50, actulen:0
+write date ok, len:50, actulen:0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 2153.561903] kernel recevdata:tesatttttt,len:10
+[ 2216.647414] kernel recevdata:tesatttttt,len:10
+[ 2229.753174] kernel recevdata:tesatttttt,len:10
+[ 2252.791211] kernel recevdata:tesatttttttttttttttttttttttttttttttttttttttttttttt,len:50
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg  -c
+[ 2153.561903] kernel recevdata:tesatttttt,len:10
+[ 2216.647414] kernel recevdata:tesatttttt,len:10
+[ 2229.753174] kernel recevdata:tesatttttt,len:10
+[ 2252.791211] kernel recevdata:tesatttttttttttttttttttttttttttttttttttttttttttttt,len:50
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg  -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg  -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg  -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+write date ok, len:94, actulen:0
+write date ok, len:94, actulen:0
+write date ok, len:94, actulen:0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg  -c
+[ 2267.079150] kernel recevdata:tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,len:94
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbb
+write date ok, len:116, actulen:0
+write date ok, len:100, actulen:0
+write date ok, len:100, actulen:0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg  -c
+[ 2274.119919] kernel recevdata:tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbb,len:100
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg  -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg  -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg  -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# gcc chrdevbaseAPP.c -o chrdevbaseAPP                                             
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbb
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 2385.562331] kernel recevdata:tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbb,len:100
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg 
+[ 2385.562331] kernel recevdata:tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbb,len:100
+[ 2391.799667] kernel recevdata:tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,len:85
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# mknod /dev/chrbase 
+mknod: missing operand after ‘/dev/chrbase’
+Try 'mknod --help' for more information.
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# rm /dev/chrbase      
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrbase 2 tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Can't open file /dev/chrbase
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# mknod /dev/chrdevbase c 200 0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase 2 tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa    
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2385.562331] kernel recevdata:tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbb,len:100
+[ 2391.799667] kernel recevdata:tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,len:85
+[ 2578.297951] kernel recevdata:tesattttttttttttttttttttttttttttttttttttttttttttttaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,len:85
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase 2 tesatttttttttttttttttttttttttttt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2585.862745] kernel recevdata:tesatttttttttttttttttttttttttttt,len:32
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase 2 tesattttttttttttt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2590.167832] kernel recevdata:tesattttttttttttt,len:17
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# mknod /dev/chrdevbase2 200 0
+mknod: missing operand after ‘0’
+Try 'mknod --help' for more information.
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# mknod /dev/chrdevbase2 200 1
+mknod: missing operand after ‘1’
+Try 'mknod --help' for more information.
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# mknod /dev/chrdevbase2 c 200 0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase2 2 tesattttttttttttt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2623.625166] kernel recevdata:tesattttttttttttt,len:17
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase2 2 tesatttttttttt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2630.855089] kernel recevdata:tesatttttttttt,len:14
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# rm /dev/chrdevbase2 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# mknod /dev/chrdevbase2 c 200 1
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase2 2 tesatttttttttt 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2664.600120] kernel recevdata:tesatttttttttt,len:14
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase2 2 tesatttttttttt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2671.767095] kernel recevdata:tesatttttttttt,len:14
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase2 2 tesatttttttttt
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls -l /dev/chrdevbase*
+crw-r--r-- 1 root root 200, 0 Mar  8 00:12 /dev/chrdevbase
+crw-r--r-- 1 root root 200, 1 Mar  8 00:14 /dev/chrdevbase2
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# mknod  /dev/chrdevbase3 c 201 0
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase3 2 tesatttttttttt 
+Can't open file /dev/chrdevbase3
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ls -l /dev/chrdevbase3 
+crw-r--r-- 1 root root 201, 0 Mar  8 00:15 /dev/chrdevbase3
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase 2 tesatttttttttt 
+chrdevbase   chrdevbase2  chrdevbase3  
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase3 2 tesatttttttttt
+Can't open file /dev/chrdevbase3
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase2 2 tesatttttttttt 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dm
+dmesg      dmidecode  dm-tool    
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2682.473094] kernel recevdata:tesatttttttttt,len:14
+[ 2767.431870] kernel recevdata:tesatttttttttt,len:14
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase1 2 tesatttttttttt 
+Can't open file /dev/chrdevbase1
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase 2 tesatttttttttt 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2785.367095] kernel recevdata:tesatttttttttt,len:14
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# rmmod chrdevbase
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# ./chrdevbaseAPP /dev/chrdevbase 2 tesatttttttttt
+Can't open file /dev/chrdevbase
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# dmesg -c
+[ 2797.975138] chrdevbase_exit
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 
+root@pc:/home/wit/work/git/mp3/driver/arm-driver/yuanzige/1_chrdevbase# 

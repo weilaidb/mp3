@@ -22,8 +22,9 @@ int main(int argc, char *argv[])
     char readbuf[100], writebuf[100];
     static char usrdata[] = {"usr data!"};
 
-    if(argc != 3) {
-        printf("Error usage!./chrdevbaseAPP  <filename>  <1:2> 1表示读，2表示写\r\n");
+    if(argc < 3) {
+        printf("Error usage!./chrdevbaseAPP  <filename>  <1> 1表示读\r\n");
+        printf("            ./chrdevbaseAPP  <filename>  <2> <write data>2表示写\r\n");
         return -1;
     }
 
@@ -48,13 +49,22 @@ int main(int argc, char *argv[])
 
     /* write */
     if(atoi(argv[2]) == 2) { /* 写 */ 
-        memcpy(writebuf, usrdata, sizeof(usrdata));
-        ret = write(fd, writebuf, 50);
+        char *pwdata = argv[3];
+        if(pwdata == NULL)
+        {
+            perror("null write data error");
+            return -1;
+        }
+        int len = strlen(argv[3]);
+        int maxlen = sizeof(writebuf);
+        len = len > maxlen ? maxlen :len;
+        memcpy(writebuf, argv[3],(len));
+        ret = write(fd, writebuf, len);
         if (ret < 0) {
             printf("write file %s failed!\r\n", filename);
         }
         else {
-
+        //    printf("write date ok, len:%u, actulen:%u\n", len, ret);
         }
     }
 

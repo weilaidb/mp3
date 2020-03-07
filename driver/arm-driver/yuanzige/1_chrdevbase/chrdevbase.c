@@ -49,9 +49,10 @@ static ssize_t chrdevbase_write(struct file *filp, const char __user *buf,
 {
     int ret = 0;
     //printk("chrdevbase_write\r\n");
+    memset(writebuf, 0, sizeof(writebuf));
     ret = copy_from_user(writebuf, buf, count);
     if(ret == 0) {
-        printk("kernel recevdata:%s\r\n", writebuf);
+        printk("kernel recevdata:%s,len:%u\r\n", writebuf, count);
     } else {
  
     }
