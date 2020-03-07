@@ -1,0 +1,1 @@
+cmd_/home/wit/work/git/mp3/driver/arm-driver/hello/hello.ko := arm-linux-gnueabi-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/wit/work/git/mp3/driver/arm-driver/hello/hello.ko /home/wit/work/git/mp3/driver/arm-driver/hello/hello.o /home/wit/work/git/mp3/driver/arm-driver/hello/hello.mod.o
