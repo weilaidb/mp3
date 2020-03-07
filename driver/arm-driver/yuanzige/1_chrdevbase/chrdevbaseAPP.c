@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     static char usrdata[] = {"usr data!"};
 
     if(argc != 3) {
-        printf("Error usage!\r\n");
+        printf("Error usage!./chrdevbaseAPP  <filename>  <1:2> 1表示读，2表示写\r\n");
         return -1;
     }
 
